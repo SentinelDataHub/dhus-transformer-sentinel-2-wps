@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <groupId>fr.gael.dhus</groupId>
+   <artifactId>dhus-transformer-sentinel-2-wps</artifactId>
+   <version>1.2.2-osf</version>
+
+   <properties>
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <maven.compiler.target>1.8</maven.compiler.target>
+      <log4j.version>2.8.2</log4j.version>
+      <argLine>-Duser.timezone=UTC</argLine>
+   </properties>
+
+   <dependencies>
+      <dependency>
+         <groupId>fr.gael.drb</groupId>
+         <artifactId>drb</artifactId>
+         <version>2.5.5</version>
+      </dependency>
+      <dependency>
+         <groupId>fr.gael.dhus</groupId>
+         <artifactId>dhus-api</artifactId>
+         <version>1.11.0-RC06</version>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.httpcomponents</groupId>
+         <artifactId>httpclient</artifactId>
+         <version>4.5.6</version>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.commons</groupId>
+         <artifactId>commons-compress</artifactId>
+         <version>1.18</version>
+      </dependency>
+
+      <dependency>
+         <groupId>org.testng</groupId>
+         <artifactId>testng</artifactId>
+         <version>6.14.3</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.mock-server</groupId>
+         <artifactId>mockserver-client-java</artifactId>
+         <version>5.4.1</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.mock-server</groupId>
+         <artifactId>mockserver-netty</artifactId>
+         <version>5.4.1</version>
+         <scope>test</scope>
+      </dependency>
+
+      <dependency>
+         <groupId>org.apache.logging.log4j</groupId>
+         <artifactId>log4j-core</artifactId>
+         <version>${log4j.version}</version>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.logging.log4j</groupId>
+         <artifactId>log4j-1.2-api</artifactId>
+         <version>${log4j.version}</version>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.logging.log4j</groupId>
+         <artifactId>log4j-slf4j-impl</artifactId>
+         <version>${log4j.version}</version>
+      </dependency>
+   </dependencies>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.2</version>
+            <configuration>
+               <source>1.8</source>
+               <target>1.8</target>
+               <encoding>ISO-8859-1</encoding>
+               <compilerArgs>
+                  <arg>-Xlint:all,-options,-path</arg>
+               </compilerArgs>
+            </configuration>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>2.5</version>
+            <configuration>
+               <archive>
+                  <manifest>
+                     <addDefaultImplementationEntries>
+                        true
+                     </addDefaultImplementationEntries>
+                  </manifest>
+               </archive>
+            </configuration>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>2.1.2</version>
+            <executions>
+               <execution>
+                  <id>attach-sources</id>
+                  <goals>
+                     <goal>jar-no-fork</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-report-plugin</artifactId>
+            <version>2.15</version>
+         </plugin>
+      </plugins>
+   </build>
+
+   <repositories>
+      <repository>
+         <id>external dependencies</id>
+<!-- repository https://copernicus.serco.eu/repository/nexus/content/repositories/releases
+     used to proxy gael's resources requires credentials
+     Using alternative source repository. -->
+         <url>https://repository.gael-systems.com/repository/public</url>
+      </repository>
+   </repositories>
+
+   <distributionManagement>
+      <repository>
+         <uniqueVersion>true</uniqueVersion>
+         <id>osf-delivery</id>
+         <name>OSF Releases Repository</name>
+         <url>
+            https://copernicus.serco.eu/repository/nexus/content/repositories/OSF_releases
+         </url>
+         <layout>default</layout>
+      </repository>
+   </distributionManagement>
+
+   <issueManagement>
+      <system>Jira</system>
+      <url>https://copernicus.serco.eu/jira-osf</url>
+   </issueManagement>
+
+   <scm>
+      <connection>scm:git:https://github.com/SentinelDataHub/dhus-transformer-sentinel-2-wps</connection>
+      <developerConnection>scm:git:https://github.com/SentinelDataHub/dhus-transformer-sentinel-2-wps</developerConnection>
+      <tag>HEAD</tag>
+      <url>https://github.com/SentinelDataHub/dhus-transformer-sentinel-2-wps</url>
+   </scm>
+
+</project>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wps:ProcessDescriptions xmlns:wps="http://www.opengis.net/wps/1.0.0"
+                         xmlns:ows="http://www.opengis.net/ows/1.1"
+                         xmlns:xlink="http://www.w3.org/1999/xlink"
+                         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                         xsi:schemaLocation="http://www.opengis.net/wps/1.0.0 http://schemas.opengis.net/wps/1.0.0/wpsDescribeProcess_response.xsd"
+                         service="WPS"
+                         version="1.0.0"
+                         xml:lang="en-CA">
+   <ProcessDescription wps:processVersion="1" storeSupported="true" statusSupported="true">
+      <ows:Identifier>l2a</ows:Identifier>
+      <ows:Title>l2a</ows:Title>
+      <ows:Abstract>Generate L2A product using L1C product.</ows:Abstract>
+      <DataInputs>
+         <Input minOccurs="1" maxOccurs="1">
+            <ows:Identifier>resolution</ows:Identifier>
+            <ows:Title>L2A Resolution in meters</ows:Title>
+            <ows:Abstract>Description of the parameter for L2A Hosted Processing</ows:Abstract>
+            <LiteralData>
+               <ows:DataType ows:reference="http://www.w3.org/TR/xmlschema-2/#string">string
+               </ows:DataType>
+               <ows:AllowedValues>
+                  <ows:Value>60</ows:Value>
+                  <ows:Value>20</ows:Value>
+                  <ows:Value>10</ows:Value>
+               </ows:AllowedValues>
+            </LiteralData>
+         </Input>
+         <Input minOccurs="1" maxOccurs="1">
+            <ows:Identifier>versionNumber</ows:Identifier>
+            <ows:Title>version number</ows:Title>
+            <ows:Abstract>version number of the hosted processor</ows:Abstract>
+            <LiteralData>
+               <ows:DataType ows:reference="http://www.w3.org/TR/xmlschema-2/#string">string
+               </ows:DataType>
+               <ows:AllowedValues>
+                  <ows:Value>02.04.00</ows:Value>
+               </ows:AllowedValues>
+            </LiteralData>
+         </Input>
+         <Input minOccurs="1" maxOccurs="1">
+            <ows:Identifier>userId</ows:Identifier>
+            <ows:Title>User Id</ows:Title>
+            <ows:Abstract>User Id of the requestor</ows:Abstract>
+            <LiteralData>
+               <ows:DataType ows:reference="http://www.w3.org/TR/xmlschema-2/#string">string
+               </ows:DataType>
+               <ows:AnyValue/>
+            </LiteralData>
+         </Input>
+         <Input minOccurs="0" maxOccurs="1">
+            <ows:Identifier>userPriority</ows:Identifier>
+            <ows:Title>User priority</ows:Title>
+            <ows:Abstract>Priority of the download</ows:Abstract>
+            <LiteralData>
+               <ows:DataType ows:reference="http://www.w3.org/TR/xmlschema-2/#integer">integer
+               </ows:DataType>
+               <ows:AnyValue/>
+            </LiteralData>
+         </Input>
+         <Input minOccurs="1" maxOccurs="10">
+            <ows:Identifier>InputProducts</ows:Identifier>
+            <ows:Title>End User Product URL</ows:Title>
+            <ows:Abstract>list of L1C tiles selected by the user</ows:Abstract>
+            <LiteralData>
+               <ows:DataType ows:reference="http://www.w3.org/TR/xmlschema-2/#string">string
+               </ows:DataType>
+               <ows:AnyValue/>
+            </LiteralData>
+         </Input>
+      </DataInputs>
+      <ProcessOutputs>
+         <Output>
+            <ows:Identifier>resultUrl</ows:Identifier>
+            <ows:Title>result url</ows:Title>
+            <ows:Abstract>download url of the processed product</ows:Abstract>
+            <LiteralOutput>
+               <ows:DataType ows:reference="http://www.w3.org/TR/xmlschema-2/#string">string
+               </ows:DataType>
+            </LiteralOutput>
+         </Output>
+      </ProcessOutputs>
+   </ProcessDescription>
+</wps:ProcessDescriptions>

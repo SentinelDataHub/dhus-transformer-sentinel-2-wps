@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wps:ExecuteResponse
+      xmlns:wps="http://www.opengis.net/wps/1.0.0"
+      xmlns:ows="http://www.opengis.net/ows/1.1"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.opengis.net/wps/1.0.0 http://schemas.opengis.net/wps/1.0.0/wpsExecute_response.xsd"
+      service="WPS"
+      version="1.0.0"
+      xml:lang="en-CA"
+      serviceInstance="http://localhost:1234/cgi-bin/pywps.cgi?service=WPS&amp;amp;request=GetCapabilities&amp;amp;version=1.0.0"
+      statusLocation="http://localhost:1234/cgi-bin/pywpsmon.cgi?Id=789c558e4d4bc4301445ff4d76493d">
+   <wps:Process wps:processVersion="1">
+      <ows:Identifier>l2a</ows:Identifier>
+      <ows:Title>l2a</ows:Title>
+      <ows:Abstract>Generate L2A product using L1C product.</ows:Abstract>
+   </wps:Process>
+   <wps:Status creationTime="1970-01-01T00:00:01Z">
+      <wps:ProcessAccepted>Process l2a accepted</wps:ProcessAccepted>
+   </wps:Status>
+   <wps:DataInputs>
+      <wps:Input>
+         <ows:Identifier>resolution</ows:Identifier>
+         <ows:Title>L2A Resolution in meters</ows:Title>
+         <ows:Abstract>Description of the parameter for L2A Hosted Processingp prototype</ows:Abstract>
+         <wps:Data>
+            <wps:LiteralData>60</wps:LiteralData>
+         </wps:Data>
+      </wps:Input>
+      <wps:Input>
+         <ows:Identifier>versionNumber</ows:Identifier>
+         <ows:Title>version number</ows:Title>
+         <ows:Abstract>version number of the hosted processor</ows:Abstract>
+         <wps:Data>
+            <wps:LiteralData>02.04.00</wps:LiteralData>
+         </wps:Data>
+      </wps:Input>
+      <wps:Input>
+         <ows:Identifier>userId</ows:Identifier>
+         <ows:Title>User Id</ows:Title>
+         <ows:Abstract>User Id of the requestor</ows:Abstract>
+         <wps:Data>
+            <wps:LiteralData>test_user_2</wps:LiteralData>
+         </wps:Data>
+      </wps:Input>
+      <wps:Input>
+         <ows:Identifier>userPriority</ows:Identifier>
+         <ows:Title>User priority</ows:Title>
+         <ows:Abstract>Priority of the download</ows:Abstract>
+         <wps:Data>
+            <wps:LiteralData>1</wps:LiteralData>
+         </wps:Data>
+      </wps:Input>
+      <wps:Input>
+         <ows:Identifier>InputProducts</ows:Identifier>
+         <ows:Title>End User Product URL</ows:Title>
+         <ows:Abstract>list of L1C tiles selected by the user</ows:Abstract>
+         <wps:Data>
+            <wps:LiteralData>s2pdi://PDI=S2B_OPER_MSI_L2A_TL_MPS__20180222T110232_A005038_T35TNK_N02.06|DW_ID=request_0001|DW_OPT={fullDatatake:NO,fullSwath:NO}</wps:LiteralData>
+         </wps:Data>
+      </wps:Input>
+   </wps:DataInputs>
+   <wps:OutputDefinitions>
+      <wps:Output>
+         <ows:Identifier>resultUrl</ows:Identifier>
+         <ows:Title>result url</ows:Title>
+         <ows:Abstract>download url of the processed product</ows:Abstract>
+      </wps:Output>
+   </wps:OutputDefinitions>
+</wps:ExecuteResponse>

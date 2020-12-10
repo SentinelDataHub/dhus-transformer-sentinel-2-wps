@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wps:Capabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:ows="http://www.opengis.net/ows/1.1"
+                  xmlns:wps="http://www.opengis.net/wps/1.0.0"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xsi:schemaLocation="http://www.opengis.net/wps/1.0.0 http://schemas.opengis.net/wps/1.0.0/wpsGetCapabilities_response.xsd"
+                  updateSequence="1">
+   <ows:ServiceIdentification>
+      <ows:Title>DAG-B WPS Server</ows:Title>
+      <ows:Abstract>
+         See http://pywps.wald.intevation.org and http://www.opengeospatial.org/standards/wps
+      </ows:Abstract>
+      <ows:Keywords>
+         <ows:Keyword>Host processing</ows:Keyword>
+         <ows:Keyword>S2PDGS</ows:Keyword>
+         <ows:Keyword>Sentinel2</ows:Keyword>
+      </ows:Keywords>
+      <ows:ServiceType>WPS</ows:ServiceType>
+      <ows:ServiceTypeVersion>1.0.0</ows:ServiceTypeVersion>
+      <ows:Fees>None</ows:Fees>
+      <ows:AccessConstraints>none</ows:AccessConstraints>
+   </ows:ServiceIdentification>
+   <ows:ServiceProvider>
+      <ows:ProviderName>ESA</ows:ProviderName>
+      <ows:ProviderSite xlink:href="http://www.esa.int"/>
+      <ows:ServiceContact>
+         <ows:IndividualName>-</ows:IndividualName>
+         <ows:PositionName>-</ows:PositionName>
+         <ows:ContactInfo>
+            <ows:Address>
+               <ows:DeliveryPoint>-</ows:DeliveryPoint>
+               <ows:City>-</ows:City>
+               <ows:PostalCode>-</ows:PostalCode>
+               <ows:Country>eu</ows:Country>
+               <ows:ElectronicMailAddress>-</ows:ElectronicMailAddress>
+            </ows:Address>
+            <ows:OnlineResource xlink:href="http://www.esa.int"/>
+            <ows:HoursOfService>0:00-24:00</ows:HoursOfService>
+            <ows:ContactInstructions>none</ows:ContactInstructions>
+         </ows:ContactInfo>
+         <ows:Role>-</ows:Role>
+      </ows:ServiceContact>
+   </ows:ServiceProvider>
+   <ows:OperationsMetadata>
+      <ows:Operation name="GetCapabilities">
+         <ows:DCP>
+            <ows:HTTP>
+               <ows:Get xlink:href="https://pdmcdag.sentinel2.eo.esa.int/cgi-bin/pywps.cgi?"/>
+               <ows:Post xlink:href="https://pdmcdag.sentinel2.eo.esa.int/cgi-bin/pywps.cgi"/>
+            </ows:HTTP>
+         </ows:DCP>
+      </ows:Operation>
+      <ows:Operation name="DescribeProcess">
+         <ows:DCP>
+            <ows:HTTP>
+               <ows:Get xlink:href="https://pdmcdag.sentinel2.eo.esa.int/cgi-bin/pywps.cgi?"/>
+               <ows:Post xlink:href="https://pdmcdag.sentinel2.eo.esa.int/cgi-bin/pywps.cgi"/>
+            </ows:HTTP>
+         </ows:DCP>
+      </ows:Operation>
+      <ows:Operation name="Execute">
+         <ows:DCP>
+            <ows:HTTP>
+               <ows:Get xlink:href="https://pdmcdag.sentinel2.eo.esa.int/cgi-bin/pywps.cgi?"/>
+               <ows:Post xlink:href="https://pdmcdag.sentinel2.eo.esa.int/cgi-bin/pywps.cgi"/>
+            </ows:HTTP>
+         </ows:DCP>
+      </ows:Operation>
+   </ows:OperationsMetadata>
+   <wps:ProcessOfferings>
+      <wps:Process wps:processVersion="1">
+         <ows:Identifier>l2a</ows:Identifier>
+         <ows:Title>l2a</ows:Title>
+         <ows:Abstract>Generate L2A product using L1C product.</ows:Abstract>
+      </wps:Process>
+      <wps:Process wps:processVersion="1">
+         <ows:Identifier>TCI</ows:Identifier>
+         <ows:Title>TCI</ows:Title>
+         <ows:Abstract>Generate TCI using L1C product.</ows:Abstract>
+      </wps:Process>
+   </wps:ProcessOfferings>
+   <wps:Languages>
+      <wps:Default>
+         <ows:Language>en-CA</ows:Language>
+      </wps:Default>
+      <wps:Supported>
+         <ows:Language>en-CA</ows:Language>
+      </wps:Supported>
+   </wps:Languages>
+   <wps:WSDL xlink:href="https://pdmcdag.sentinel2.eo.esa.int/cgi-bin/pywps.cgi?WSDL"/>
+</wps:Capabilities>
