@@ -24,7 +24,7 @@
       <dependency>
          <groupId>fr.gael.dhus</groupId>
          <artifactId>dhus-api</artifactId>
-         <version>1.11.0-RC06</version>
+         <version>1.11.0-osf</version>
       </dependency>
       <dependency>
          <groupId>org.apache.httpcomponents</groupId>
